@@ -17,6 +17,7 @@ const genreInput = document.getElementById("genre-input")
 const movieList = document.getElementById("movie-list")
 // select #clear-watched-btn → store in clearWatchedBtn
 const clearWatchedBtn = document.getElementById("clear-watched-btn")
-
 // select ALL elements with class "filter-btn" using querySelectorAll
+const querySelectorAll = document.querySelector("filter-btn")
 // store them in filterBtns — you'll loop over them in Phase 6
+const filterBtns = querySelectorAll
