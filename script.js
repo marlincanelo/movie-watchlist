@@ -75,9 +75,19 @@ movieForm.addEventListener("submit", (event) => {
   //    Without this line, the page refreshes on every submit and you lose everything
   event.preventDefault()
 
+
+  // stores input
 const title = titleInput.value
 
 const genre = genreInput.value
+
+console.log(title)
+console.log(genre)
+
+const card = createMovieCard(title, genre)
+
+movieList.append(card)
+
 
  movieForm.reset()
 
@@ -86,5 +96,61 @@ const genre = genreInput.value
 
 
 
+function createMovieCard(title, genre) {
+  // 1. LI element
+    const card = document.createElement("li")
+    card.classList.add("movie-card")
+    //data genre goes into value
+    card.setAttribute("data-genre", genre);
+
+
+    // 2. DIV element
+    const info = document.createElement("div")
+    info.classList.add("movie-info")
+
+    // SPAN element
+    const movieTitle = document.createElement("span")
+    movieTitle.classList.add("movie-title")
+
+    const movieGenre = document.createElement("span")
+    movieGenre.classList.add("movie-genre")
+
+
+    movieTitle.textContent = title;
+    movieGenre.textContent = genre || "No genre";
+
+
+    // moves insidd info
+    info.append(movieTitle, movieGenre)
+
+
+
+    // 3.
+    const btn = document.createElement("div")
+    btn.classList.add("movie-actions")
+
+    const watchBtn = document.createElement("button")
+    watchBtn.classList.add("watch-btn")
+    watchBtn.textContent = "Mark Watched";
+
+    const removeBtn = document.createElement("button")
+    removeBtn.classList.add("remove-btn")
+    removeBtn.textContent = "Remove";
+
+    // move watchBtn and removeBtn inside btn
+    btn.append(watchBtn, removeBtn) 
+
+
+    // 4.
+    card.append(info, btn)
+
+    return card;
+
+
+
+
+
+
+}
 
 
