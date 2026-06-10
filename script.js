@@ -64,7 +64,27 @@ console.log(titleInput.getAttribute("value"))
 
 
 // What is the difference between getAttribute("value") and .value on an input?
-// getAttribute("value") →
-// .value               →
+// getAttribute("value") → 
+// .value →
+
+//event means, when clicked, save and submit to html
+// movieform --> works on form boxes
+// the rest are buttons or inputs
+movieForm.addEventListener("submit", (event) => {
+  // 1. Stop the browser from reloading the page
+  //    Without this line, the page refreshes on every submit and you lose everything
+  event.preventDefault()
+
+const title = titleInput.value
+
+const genre = genreInput.value
+
+ movieForm.reset()
+
+
+})
+
+
+
 
 
